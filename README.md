@@ -20,7 +20,7 @@ export interface Graph extends ReadonlyGraph {
 ```
 
 ```typescript
-export interface GraphFunction<Q extends Quad, Variables extends unknown[]> {
+export interface GraphFunction<Q extends Quad = Quad, Variables extends unknown[]> {
   (this: ReadonlyGraph<Q>, ...args: Variables): AsyncIterableIterator<Graph>
 }
 ```
@@ -30,5 +30,12 @@ export interface Lens<V> extends ReadonlyDataset<Quad> {
   [Symbol.iterator](): Iterator<Quad>
   [Symbol.asyncIterator](): AsyncIterator<[ReadonlyDataset<Quad>, ReadonlyDataset<Quad>]>
   then(resolve: (value: V) => void, reject: (error: unknown) => void): void
+}
+```
+
+
+```typescript
+export interface LensFunction<V = unknown, Q extends Quad = Quad, Variables extends unknown[]> {
+  (this: ReadonlyGraph<Q>, ...args: Variables): Lens<V>
 }
 ```
