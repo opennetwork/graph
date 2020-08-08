@@ -20,6 +20,12 @@ export interface Graph extends ReadonlyGraph {
 ```
 
 ```typescript
+export interface GraphFunction<Q extends Quad, Variables extends unknown[]> {
+  (this: ReadonlyGraph<Q>, ...args: Variables): AsyncIterableIterator<Graph>
+}
+```
+
+```typescript
 export interface Lens<V> extends ReadonlyDataset<Quad> {
   [Symbol.iterator](): Iterator<Quad>
   [Symbol.asyncIterator](): AsyncIterator<[ReadonlyDataset<Quad>, ReadonlyDataset<Quad>]>
