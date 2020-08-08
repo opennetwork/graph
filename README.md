@@ -1,6 +1,6 @@
 # Graph
 
-See [tsgraph](https://github.com/opennetwork/tsgraph]
+See [tsgraph](https://github.com/opennetwork/tsgraph)
 
 ```typescript
 export interface ReadonlyGraph extends ReadonlyDataset<Quad> {
